@@ -2,6 +2,7 @@ import { FaCaretDown } from "react-icons/fa6";
 import { BiPhoneCall, BiSolidSun, BiSolidMoon } from "react-icons/bi";
 import { HiMenuAlt1, HiMenuAlt3 } from "react-icons/hi";
 import { useState, useEffect } from "react";
+import { ResponsiveMenu } from "./ResponsiveMenu";
 
 export const Navbar = () => {
     const [theme, setTheme] = useState(
@@ -9,13 +10,13 @@ export const Navbar = () => {
     );
 
     const [showMenu, setShowMenu] = useState(false);
-    const element = document.documentElement;
 
     const toggleMenu = () => {
         setShowMenu(!showMenu);
     };
 
     useEffect(() => {
+        const element = document.documentElement;
         if (theme === "dark") {
             element.classList.add("dark");
             localStorage.setItem("theme", "dark");
@@ -26,7 +27,7 @@ export const Navbar = () => {
     }, [theme]);
     return (
         <>
-            <nav className="fixed top-0 left-0 w-full bg-gradient-to-l from-violet-900 via-violet-700 to-violet-900 text-white border-b-[1px] border-primary/50 z-[9999]">
+            <nav className="fixed top-0 left-0 w-full bg-gradient-to-l from-violet-900 via-violet-700 to-violet-900 text-white border-b-[1px] border-primary/50 z-20">
                 <div className="container">
                     <div className="flex items-center justify-between h-[70px] py-2">
                         {/* Logo section */}
@@ -128,6 +129,8 @@ export const Navbar = () => {
                     </div>
                 </div>
             </nav>
+            {/* Mobile side Menu components */}
+            <ResponsiveMenu showMenu={showMenu} />
         </>
     );
 };
