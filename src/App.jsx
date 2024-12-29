@@ -1,4 +1,6 @@
 import { Banner } from "./components/Banner/Banner";
+import { Blog } from "./components/Blog/Blog";
+import { Footer } from "./components/Footer/Footer";
 import { Hero } from "./components/Hero/Hero";
 import { Navbar } from "./components/Navbar/Navbar";
 import { OurVision } from "./components/OurVision/OurVision";
@@ -15,6 +17,8 @@ export const App = () => {
                 <OurVision />
                 <Banner />
                 <VideoBanner />
+                <Blog />
+                <Footer />
             </main>
         </>
     );
